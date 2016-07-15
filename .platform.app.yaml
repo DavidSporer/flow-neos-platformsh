@@ -22,6 +22,6 @@ mounts:
 
 hooks:
     deploy: |
-      composer install
+      php flow cache:warmup
       php flow doctrine:migrate
       php flow resource:publish
