@@ -17,7 +17,6 @@ disk: 512
 runtime:
     extensions:
         - imagick
-        - geoip
         - gmp
         - redis
 
