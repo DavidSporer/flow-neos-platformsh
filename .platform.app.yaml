@@ -14,6 +14,13 @@ web:
 
 disk: 512
 
+runtime:
+    extensions:
+        - imagick
+        - geoip
+        - gmp
+        - redis
+
 mounts:
     "/Configuration/Production": "shared:files/configuration-production"
     "/Configuration/Development": "shared:files/configuration-development"
