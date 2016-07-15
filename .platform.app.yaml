@@ -15,6 +15,8 @@ web:
 disk: 512
 
 mounts:
+    "/Configuration/Production/": "shared:files/configuration/production"
+    "/Configuration/Development/": "shared:files/configuration/development"
     "/Data/Persistent": "shared:files/data"
     "/Data/Temporary": "shared:files/tmp"
     "/Data/Logs": "shared:files/logs"
