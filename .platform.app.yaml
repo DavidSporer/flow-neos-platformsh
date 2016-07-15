@@ -23,5 +23,6 @@ mounts:
 hooks:
     deploy: |
       php flow cache:warmup
+    build: |
       php flow doctrine:migrate
       php flow resource:publish
