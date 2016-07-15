@@ -17,6 +17,7 @@ disk: 512
 mounts:
     "/Data/Persistent": "shared:files/data"
     "/Data/Temporary": "shared:files/tmp"
+    "/Data/Logs": "shared:files/logs"
 
 hooks:
     deploy: |
