@@ -1,0 +1,24 @@
+name: neos-demo
+
+type: "php:7.0"
+
+relationships:
+    database: "mysql:mysql"
+
+web:
+    locations:
+        "/":
+            root: "Web"
+            expires: -1
+            passthru: "/index.php"
+
+disk: 512
+
+mounts:
+    "/Data/Persistent": "shared:data/Persistent"
+
+hooks:
+    deploy: |
+      composer install
+      php flow doctrine:migrate
+      php flow resource:publish
