@@ -1,5 +1,5 @@
 mysql:
-    type: mysql:5.6
+    type: mysql:5.5
     disk: 1024
 
 redis:

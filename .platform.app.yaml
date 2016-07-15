@@ -1,4 +1,4 @@
-name: neos-demo
+name: app
 
 type: "php:7.0"
 
@@ -15,7 +15,7 @@ web:
 disk: 512
 
 mounts:
-    "/Data/Persistent": "shared:data/Persistent"
+    "/Data/Persistent": "shared:files/data"
 
 hooks:
     deploy: |
