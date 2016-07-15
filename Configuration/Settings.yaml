@@ -1,0 +1,12 @@
+
+TYPO3:
+  Imagine:
+    driver: Imagick
+  Flow:
+    persistence:
+      backendOptions:
+        driver: pdo_mysql
+        dbname: neos-demo_platform_sh
+        user: root
+        password: root
+        host: 127.0.0.1

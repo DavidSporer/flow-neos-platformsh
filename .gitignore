@@ -3,7 +3,6 @@
 /Build/BuildEssentials
 /Build/Reports
 /Build/Resources
-/Configuration/
 /Data/
 /Packages/
 /Web/
@@ -12,6 +11,13 @@
 /Upgrading.txt
 /flow
 /flow.bat
+/*.rst
+
+/Configuration/*.example
+/Configuration/**/*.example
+/Configuration/**/IncludeCachedConfigurations.php
+/Configuration/**/README
+/Configuration/PackageStates.php
 
 # ignore the downloaded selenium server, config and the selenium
 # temporary directory (which starts with a quote, do not ask why...)

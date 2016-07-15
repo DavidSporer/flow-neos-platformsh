@@ -1,13 +1,20 @@
-----------------------
-Neos base distribution
-----------------------
+------------------
+Flow Framework 3.2
+------------------
 
-This repository provides a basis for starting new Neos projects. After running `composer update` or `composer install`
-respectively, you will have all packages installed which are needed for a standard Neos website.
+Welcome to Flow!
 
-It is best practice is to fork this repository, then clone it locally and adjust the dependencies in composer.json to your
-needs. After running `composer update`, check in the generated `composer.lock` file and push the result to your fork or a new 
-repository.
+There are a few things you need to know to get started.
+All necessary steps are explained in the `Getting Started tutorial <http://flowframework.readthedocs.io/en/3.2/Quickstart/index.html>`_.
 
-Learn more about the Neos content application platform on http://www.neos.io/.
-You'll find the installation instructions and more at http://neos.readthedocs.org/en/stable/
+In short here's what you need to do:
+
+1) Set up a virtual host for your web server and let it point to the Web/
+   directory of Flow.
+2) Adjust the file permissions. On Linux / Mac just run
+   ``sudo ./flow flow:core:setfilepermissions johndoe wwwuser wwwgroup``
+   from Flow's main directory (replace the user names by some matching
+   your system environment!).
+3) Call the URL leading to your virtual host from a browser
+
+Have fun!
