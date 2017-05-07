@@ -1,0 +1,2 @@
+export FLOW_REWRITEURLS=1
+export FLOW_CONTEXT=Production

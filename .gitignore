@@ -11,7 +11,7 @@
 /Upgrading.txt
 /flow
 /flow.bat
-/*.rst
+.idea
 
 /Configuration/*.example
 /Configuration/**/*.example

@@ -3,34 +3,36 @@ name: app
 type: "php:7.0"
 
 relationships:
-    database: "mysql:mysql"
+  database: "mysql:mysql"
 
 web:
-    locations:
-        "/":
-            root: "Web"
-            expires: -1
-            passthru: "/index.php"
+  locations:
+    "/":
+      root: "Web"
+      expires: -1
+      passthru: "/index.php"
 
 disk: 512
 
 runtime:
-    extensions:
-        - imagick
-        - gmp
-        - redis
+  extensions:
+    - imagick
+    - gmp
+    - redis
 
 mounts:
-    "/Configuration/Production": "shared:files/configuration-production"
-    "/Configuration/Development": "shared:files/configuration-development"
-    "/Data/Persistent": "shared:files/data"
-    "/Data/Temporary": "shared:files/tmp"
-    "/Data/Logs": "shared:files/logs"
-    "/Web/_Resources": "shared:files/web"
+  "/Configuration": "shared:files/configuration"
+  "/Data/Persistent": "shared:files/data"
+  "/Data/Temporary": "shared:files/tmp"
+  "/Data/Logs": "shared:files/logs"
+  "/Web/_Resources": "shared:files/web"
 
 hooks:
-    deploy: |
-      php flow doctrine:migrate
-      php flow resource:publish
-    build: |
-      php flow cache:warmup
+  build: |
+    rm -rf Data/Temporary/*
+    php flow cache:warmup
+  deploy: |
+    cp platform/Flow-Configuration/Settings.yaml Configuration/Settings.yaml
+    php platform/platform-set-env.php
+    php flow doctrine:migrate
+    php flow resource:publish

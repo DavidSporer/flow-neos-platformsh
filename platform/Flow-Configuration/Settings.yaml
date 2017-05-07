@@ -1,0 +1,41 @@
+#                                                                        #
+# Example Settings                                                       #
+#                                                                        #
+# This file contains settings for various parts of the application.      #
+# Copy this file to Settings.yaml, and adjust as necessary.              #
+#                                                                        #
+# Please refer to the default settings file(s) or the manuals for        #
+# possible configuration options.                                        #
+#                                                                        #
+
+
+TYPO3:
+  Flow:
+    persistence:
+
+      # It is good practice to not specify user name and password of the database
+      # connection in this global Settings.yaml file. Rather specify them in the
+      # settings of the respective context (Production / Development ...).
+      backendOptions:
+        driver: 'pdo_mysql'
+        dbname: '%env:DATABASE_NAME%'
+        port: '%env:DATABASE_PORT%'
+        user: '%env:DATABASE_USER%'
+        password: '%env:DATABASE_PASSWORD%'
+        host: '%env:DATABASE_HOST%'
+
+
+    #core:
+    #  phpBinaryPathAndFilename: '/usr/local/bin/php_cli'
+
+    resource:
+      targets:
+        localWebDirectoryPersistentResourcesTarget:
+          target: 'TYPO3\Flow\Resource\Target\FileSystemSymlinkTarget'
+          targetOptions:
+            relativeSymlinks: TRUE
+            subdivideHashPathSegment: TRUE
+        localWebDirectoryStaticResourcesTarget:
+          target: 'TYPO3\Flow\Resource\Target\FileSystemSymlinkTarget'
+          targetOptions:
+            relativeSymlinks: TRUE
