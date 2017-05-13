@@ -8,22 +8,23 @@ if (!$relationships) {
 
 $relationships = json_decode(base64_decode($relationships), true);
 
-$settings = '/app/Configuration/Settings.yaml';
-$settingsContent = file_get_contents($settings);
-
 foreach ($relationships['database'] as $endpoint) {
     if (empty($endpoint['query']['is_master'])) {
         continue;
     }
-    $settingsContent = str_replace("%env:DATABASE_NAME%", $endpoint['path'], $settingsContent);
-    $settingsContent = str_replace("%env:DATABASE_PORT%", $endpoint['port'], $settingsContent);
-    $settingsContent = str_replace("%env:DATABASE_USER%", $endpoint['username'], $settingsContent);
-    $settingsContent = str_replace("%env:DATABASE_PASSWORD%", $endpoint['password'], $settingsContent);
-    $settingsContent = str_replace("%env:DATABASE_HOST%", $endpoint['host'], $settingsContent);
 
-    file_put_contents($settings, $settingsContent);
+    putenv('DATABASE_NAME=' . $endpoint['path']);
+    putenv('DATABASE_PORT=' . $endpoint['port']);
+    putenv('DATABASE_USER=' . $endpoint['username']);
+    putenv('DATABASE_PASSWORD=' . $endpoint['password']);
+    putenv('DATABASE_HOST=' . $endpoint['host']);
 
     echo 'Successfully set environment variables for database connection.\n';
 }
+
+$output_flush = `php flow flow:cache:flush --force`;
+echo $output_flush;
+$output_warmup = `php flow flow:cache:warmup`;
+echo $output_warmup;
 
 ?>

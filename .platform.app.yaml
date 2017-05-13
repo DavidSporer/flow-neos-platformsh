@@ -34,5 +34,3 @@ hooks:
   deploy: |
     cp platform/Flow-Configuration/Settings.yaml Configuration/Settings.yaml
     php platform/platform-set-env.php
-    php flow doctrine:migrate
-    php flow resource:publish
