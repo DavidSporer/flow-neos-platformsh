@@ -16,3 +16,5 @@ platform variable:set -e master env:flow_context Production
 
 Setting the context to Production/Staging for the develop branch:
 platform variable:set -e develop env:flow_context Production/Staging
+
+Also check out this package for another approach on how to set variables: https://github.com/ttreeagency/FlowPlatformSh
